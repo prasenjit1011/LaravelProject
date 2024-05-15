@@ -17,7 +17,7 @@ class Admin
     public function handle(Request $request, Closure $next): Response
     {
         if(!Auth::user() || Auth::user()->usertype != 1){
-            return redirect()->back();
+            return redirect('login');
         }
         return $next($request);
     }
