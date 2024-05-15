@@ -22,9 +22,16 @@ export default function Authenticated({ user, header, children }) {
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 
-                                <NavLink href={user.usertype?route('admin.dashboard'):route('dashboard')} active={route().current('dashboard')}>
+                            <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
-                                </NavLink>
+                            </NavLink>
+
+                            {
+                                user.usertype == 1 ?
+                                    <NavLink href={user.usertype?route('admin.dashboard'):route('dashboard')} active={route().current('admin.dashboard')}>
+                                        User List
+                                    </NavLink>:''
+                            }
                             </div>
                         </div>
 
